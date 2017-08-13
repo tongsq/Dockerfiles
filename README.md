@@ -13,7 +13,7 @@ docker build -t apache-php:v1 .
 # Run image
 docker run -it -d -p 80:80 apache-php:v1
 
-#中文文档
+# 中文文档
 [apache+php](http://www.jianshu.com/p/2fb677037844)
 
 
