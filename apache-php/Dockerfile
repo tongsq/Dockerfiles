@@ -19,7 +19,6 @@ RUN yum -y install gcc make zlib-devel pcre-devel pcre \
  --enable-static-support \
 && make && make install \
 && cd /src/php-7.1.8 \
-&& yum -y install gcc \
 && yum -y install libxml2-devel \
 && yum -y install openssl openssl-devel libcurl-devel perl \
 && sed -i '1i\#!/usr/bin/perl -w' /usr/local/apache/bin/apxs \
