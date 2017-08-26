@@ -32,7 +32,8 @@ RUN yum -y install gcc make zlib-devel pcre-devel pcre \
 --enable-opcache \
 --with-apxs2=/usr/local/apache/bin/apxs \
 && make && make install \
-&& rm -rf /src 
+&& rm -rf /src \
+&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
 COPY httpd.conf /usr/local/apache/conf/
 COPY php.ini /usr/local/php/lib/
 EXPOSE 80

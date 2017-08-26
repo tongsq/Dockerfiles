@@ -40,7 +40,8 @@ make \
 --with-apxs2=/usr/local/apache/bin/apxs \
 && make && make install \
 && rm -rf /src \
-&& rm -r /var/lib/apt/lists/*
+&& rm -r /var/lib/apt/lists/* \
+&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 COPY httpd.conf /usr/local/apache/conf/
 COPY php.ini /usr/local/php/lib/
 EXPOSE 80

@@ -1,0 +1,30 @@
+ngx.req.get_headers()
+ngx.req.get_uri_args()
+ngx.req.read_body() ngx.req.get_post_args()
+ngx.req.get_body_data()
+ngx.req.raw_header()
+ngx.req.get_method()
+
+lua_shared_dict shared_data 1m;
+ngx.shared.shared_data:incr(i, 1)
+
+math.randomseed(os.time())
+math.random()
+math.random(100) //返回整数
+math.random(100, 360)
+
+server {
+		server_name www.example.com;
+		return 301 $scheme://example.com$request_uri;
+	}
+	server {
+		server_name example.com;
+		location / {
+			try_files $uri $uri/ @proxy;
+		}
+		location @proxy{
+			include fastcgi_params;
+			fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+			fastcgi_pass unix:/tmp/phpcgi.socket;
+		}
+	}
